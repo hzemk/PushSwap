@@ -1,16 +1,13 @@
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
-#include <unistd.h>
 #include <stdlib.h>
 
 typedef struct s_stack
 {
-	int				value;
+	int				size;
 	struct s_stack	*next;
 }	t_stack;
-
-void    putstr(char *str);
 
 int     rotate(t_stack **stack);
 int     revrot(t_stack **stack);

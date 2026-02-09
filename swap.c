@@ -12,20 +12,20 @@ static int swap(t_stack *s)
     return (1);
 }
 
-void sa(t_stack **s)
+void sa(t_stack *s)
 {
-    if (swap(*s))
+    if (swap(s))
         putstr("sa\n");
 }
 
-void sb(t_stack **s)
+void sb(t_stack *s)
 {
-    if (swap(*s))
+    if (swap(s))
         putstr("sb\n");
 }
 
-void ss(t_stack **a, t_stack **b)
+void ss(t_stack *a, t_stack *b)
 {
-    if (swap(*a) | swap(*b))
+    if (swap(a) | swap(b))
         putstr("ss\n");
 }

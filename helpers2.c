@@ -6,7 +6,7 @@
 /*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 14:30:48 by hal-taha          #+#    #+#             */
-/*   Updated: 2026/02/08 15:05:24 by hal-taha         ###   ########.fr       */
+/*   Updated: 2026/02/09 20:13:32 by hal-taha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,5 @@ int size_stack(t_stack *a)
                 count++;
                 a= a->next;
         }
-        return(count); }
+        return(count);
+}
