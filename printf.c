@@ -50,6 +50,8 @@ int	ft_puthex(unsigned long nbr, char spec)
 
 static int	handle_format(char spec, va_list args)
 {
+	if (spec == 'e')
+		return (ft_pute(va_arg(args, char *)));
 	if (spec == 'c')
 		return (ft_putchar(va_arg(args, int)));
 	if (spec == 's')

@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void simple(t_stack *a)
+void	simple(t_stack *a)
 {
 	t_stack	*b;
 
-	b = malloc (sizeof(t_stack));
+	b = malloc(sizeof(t_stack));
 	if (!b)
 		return ;
 	b->size = 0;
@@ -22,13 +22,13 @@ void simple(t_stack *a)
 	while (a->size)
 	{
 		if (find_min(a) == find_top(a))
-			pb(a,b);
+			pb(a, b);
 		else
 			ra(a);
 	}
 	while (b->size)
 	{
-		pa(a,b);
+		pa(a, b);
 	}
 	free(b);
 }

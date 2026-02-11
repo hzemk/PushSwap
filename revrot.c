@@ -1,42 +1,46 @@
 #include "PUSHSWAP_H"
 
-int revrot(t_stack **s)
+static int	reverse_rotate(t_stack *stack)
 {
-    t_stack *prev;
-    t_stack *last;
+	t_node	*prev;
+	t_node	*last;
 
-    if (!s || !*s || !(*s)->next)
-        return (0);
-
-    prev = NULL;
-    last = *s;
-    while (last->next)
-    {
-        prev = last;
-        last = last->next;
-    }
-
-    prev->next = NULL;
-    last->next = *s;
-    *s = last;
-
-    return (1);
+	if (!stack || stack->size < 2)
+		return (0);
+	prev = NULL;
+	last = stack->top;
+	while (last->next)
+	{
+		prev = last;
+		last = last->next;
+	}
+	prev->next = NULL;
+	last->next = stack->top;
+	stack->top = last;
+	return (1);
 }
 
-void    rra(t_stack **sa)
+void	rra(t_stack *a)
 {
-    if (revrot(sa))
-        putstr("rra\n");
+	if (reverse_rotate(a))
+		ft_printf("rra\n");
 }
 
-void    rrb(t_stack **sb)
+void	rrb(t_stack *b)
 {
-    if (revrot(sb))
-        putstr("rrb\n");
+	if (reverse_rotate(b))
+		ft_printf("rrb\n");
 }
 
-void    rrr(t_stack **sa, t_stack **sb)
+void	rrr(t_stack *a, t_stack *b)
 {
-    if (revrot(sa) | revrot(sb))
-        putstr("rrr\n");
+	int	rotated;
+
+	rotated = 0;
+	if (reverse_rotate(a))
+		rotated++;
+	if (reverse_rotate(b))
+		rotated++;
+	if (rotated)
+		ft_printf("rrr\n");
 }

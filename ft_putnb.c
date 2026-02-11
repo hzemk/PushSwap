@@ -55,3 +55,16 @@ int	ft_putptr(unsigned long n)
 	count += ft_puthex(n, 'x');
 	return (count);
 }
+
+int	ft_pute(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		write(2, &str[i], 1);
+		i++;
+	}
+	return (i);
+}

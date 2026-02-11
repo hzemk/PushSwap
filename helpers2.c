@@ -12,75 +12,73 @@
 
 #include "pushswap.h"
 
-int find_min(t_stack *node)
+int	find_min(t_stack *stack)
 {
+	t_node	*current;
+	int		min;
 
-        int	min;
-
-        if (!node)
-                return (0);
-        min = node->value;
-        while (node)
-        {
-                if (node->value < min)
-                        min = node->value;
-                node = node->next;
-        }
-        return (min);
+	if (!stack || !stack->top)
+		return (0);
+	current = stack->top;
+	min = current->value;
+	while (current)
+	{
+		if (current->value < min)
+			min = current->value;
+		current = current->next;
+	}
+	return (min);
 }
 
-int find_max(t_stack *node)
+int	find_max(t_stack *stack)
 {
+	t_node	*current;
+	int		max;
 
-        int max;
-
-        if(!node)
-                return (0);
-        max= node->value;
-        while(node)
-        {
-                if(node->value > max)
-                        max=node->value;
-                node=node->next;
-        }
-        return (max);
-}int is_sorted(t_stack *node)
-{
-        if(!node || !node->next)
-                return (0);
-        while(node->next)
-        {
-                if(node->value > node->next->value)
-                        return(0);
-                node=node->next
-        }
-        return (1);
+	if (!stack || !stack->top)
+		return (0);
+	current = stack->top;
+	max = current->value;
+	while (current)
+	{
+		if (current->value > max)
+			max = current->value;
+		current = current->next;
+	}
+	return (max);
 }
 
-int find_index(t_stack *a, int value)
+int	is_sorted(t_stack *stack)
 {
-        int i
+	t_node	*current;
 
-        i = 0;
-        while(a)
-        {
-                if(a->value > value)
-                        return (i);
-                a=a->next;
-                i++;
-        }
-        return (-1);
+	if (!stack || stack->size < 2)
+		return (1);
+	current = stack->top;
+	while (current->next)
+	{
+		if (current->value > current->next->value)
+			return (0);
+		current = current->next;
+	}
+	return (1);
 }
 
-int size_stack(t_stack *a)
+int	find_index(t_stack *stack, int value)
 {
-        int count;
+	t_node	*current;
+	int		index;
 
-        count=0;
-        while(a)
-        {
-                count++;
-                a= a->next;
-        }
-        return(count);
+	if (!stack)
+		return (-1);
+	current = stack->top;
+	index = 0;
+	while (current)
+	{
+		if (current->value == value)
+			return (index);
+		current = current->next;
+		index++;
+	}
+	return (-1);
 }

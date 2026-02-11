@@ -16,7 +16,7 @@ t_stack	*parsing(int argc, char **argv)
 	long	i;
 
 	i = 1;
-	a = malloc (sizeof t_stack);
+	a = malloc(sizeof t_stack);
 	if (!a)
 		return (NULL);
 	while (i < argc)
@@ -26,14 +26,14 @@ t_stack	*parsing(int argc, char **argv)
 			i++;
 			continue ;
 		}
-		if (!isnum(argv[i]) || (outofrange(argv[i]))
-			|| isdup(a, ft_atoi(argv[i])))
+		if (!isnum(argv[i]) || (outofrange(argv[i])) || isdup(a,
+				ft_atoi(argv[i])))
 		{
 			ft_printf("%e", "Error\n");
 			free(a);
 			exit(0);
 		}
-		push_back (&a, ft_atoi(argv[i]));
+		push_back(&a, ft_atoi(argv[i]));
 	}
 	return (a);
 }

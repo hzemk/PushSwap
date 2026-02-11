@@ -1,31 +1,42 @@
 #include "PUSHSWAP_H"
 
-static int swap(t_stack *s)
+static int	swap(t_stack *stack)
 {
-    int tmp;
+	int		tmp;
+	t_node	*first;
+	t_node	*second;
 
-    if (!s || !s->next)
-        return (0);
-    tmp = s->value;
-    s->value = s->next->value;
-    s->next->value = tmp;
-    return (1);
+	if (!stack || stack->size < 2)
+		return (0);
+	first = stack->top;
+	second = first->next;
+	tmp = first->value;
+	first->value = second->value;
+	second->value = tmp;
+	return (1);
 }
 
-void sa(t_stack *s)
+void	sa(t_stack *a)
 {
-    if (swap(s))
-        putstr("sa\n");
+	if (swap(a))
+		ft_printf("sa\n");
 }
 
-void sb(t_stack *s)
+void	sb(t_stack *b)
 {
-    if (swap(s))
-        putstr("sb\n");
+	if (swap(b))
+		ft_printf("sb\n");
 }
 
-void ss(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b)
 {
-    if (swap(a) | swap(b))
-        putstr("ss\n");
+	int	swapped;
+
+	swapped = 0;
+	if (swap(a))
+		swapped++;
+	if (swap(b))
+		swapped++;
+	if (swapped)
+		ft_printf("ss\n");
 }

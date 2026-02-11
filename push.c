@@ -12,35 +12,29 @@
 
 #include "PUSHSWAP_H"
 
-static int push(t_stack **src, t_stack **dst)
+static int	push(t_stack *src, t_stack *dst)
 {
-    t_stack *tmp;
+	t_node	*moved;
 
-    if (!src || !*src)
-        return (0);
-    tmp = (*src)->next;
-    (*src)->next = *dst;
-    *dst = *src;
-    *src = tmp;
-    return (1);
+	if (!src || !src->top)
+		return (0);
+	moved = src->top;
+	src->top = moved->next;
+	moved->next = dst->top;
+	dst->top = moved;
+	src->size--;
+	dst->size++;
+	return (1);
 }
 
-void pa(t_stack **a, t_stack **b)
+void	pa(t_stack *a, t_stack *b)
 {
-    if (push(b, a))
-    {
-	ft_printf("%s","pa\n");
-	a -> size++;
-    	b -> size--;
-    }
+	if (push(b, a))
+		ft_printf("pa\n");
 }
 
-void pb(t_stack **a, t_stack **b)
+void	pb(t_stack *a, t_stack *b)
 {
-    if (push(a, b))
-    {
-	    ft_printf("%s","pb\n");
-	    a -> size--;
-	    b -> size++;
-    }
+	if (push(a, b))
+		ft_printf("pb\n");
 }
