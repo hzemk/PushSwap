@@ -2,77 +2,59 @@
 # define PUSHSWAP_H
 
 # include "ft_printf.h"
+# include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
 
-/*
-** Node structure (one element in the stack)
-*/
 typedef struct s_node
 {
 	int				value;
 	struct s_node	*next;
 }					t_node;
 
-/*
-** Stack container
-** top points to the TOP of the stack
-*/
 typedef struct s_stack
 {
 	t_node			*top;
 	int				size;
 }					t_stack;
 
-/*
- Push operations
-*/
+/* Push */
 void				pa(t_stack *a, t_stack *b);
 void				pb(t_stack *a, t_stack *b);
 
-/*
-** Swap operations
-*/
+/* Swap */
 void				sa(t_stack *a);
 void				sb(t_stack *b);
 void				ss(t_stack *a, t_stack *b);
 
-/*
-** Rotate operations
-*/
+/* Rotate */
 void				ra(t_stack *a);
 void				rb(t_stack *b);
 void				rr(t_stack *a, t_stack *b);
 
-/*
- * Reverse rotate operations
- */
+/* Reverse Rotate */
 void				rra(t_stack *a);
 void				rrb(t_stack *b);
 void				rrr(t_stack *a, t_stack *b);
 
-/*
-** Parsing / validation
-*/
+/* Parsing */
 int					is_number(char *str);
 long				ft_atoi(const char *nptr);
 int					out_of_range(long num);
 int					is_dup(t_stack *a, long num);
+t_stack				*parsing(int argc, char **argv);
 
-/*
-** Stack utilities
-*/
+/* Stack utils */
 int					find_min(t_stack *stack);
 int					find_max(t_stack *stack);
 int					find_index(t_stack *stack, int value);
 int					is_sorted(t_stack *stack);
 int					find_top(t_stack *stack);
 int					find_bottom(t_stack *stack);
-
-/*
- * Stack creation / helpers
- */
 void				push_back(t_stack *stack, int value);
-t_stack				*parsing(int argc, char **argv);
+
+/* Memory */
+void				free_stack(t_stack *stack);
+void				error(t_stack *a);
 
 #endif

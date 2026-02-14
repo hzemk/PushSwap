@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "pushswap.h"
+
 int	find_bottom(t_stack *stack)
 {
 	t_node	*current;
@@ -38,7 +40,7 @@ void	push_back(t_stack *stack, int value)
 		return ;
 	new = malloc(sizeof(t_node));
 	if (!new)
-		return ;
+		error(stack);
 	new->value = value;
 	new->next = NULL;
 	if (!stack->top)

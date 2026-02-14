@@ -1,4 +1,4 @@
-#include "PUSHSWAP_H"
+#include "pushswap.h"
 
 static int	swap(t_stack *stack)
 {
@@ -30,13 +30,10 @@ void	sb(t_stack *b)
 
 void	ss(t_stack *a, t_stack *b)
 {
-	int	swapped;
-
-	swapped = 0;
-	if (swap(a))
-		swapped++;
-	if (swap(b))
-		swapped++;
-	if (swapped)
+	if (a->size >= 2 && b->size >= 2)
+	{
+		swap(a);
+		swap(b);
 		ft_printf("ss\n");
+	}
 }

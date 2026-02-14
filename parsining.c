@@ -10,30 +10,51 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "pushswap.h"
+
+void	free_stack(t_stack *stack)
+{
+	t_node	*tmp;
+
+	if (!stack)
+		return ;
+	while (stack->top)
+	{
+		tmp = stack->top;
+		stack->top = tmp->next;
+		free(tmp);
+	}
+	free(stack);
+}
+
+void	error(t_stack *a)
+{
+	free_stack(a);
+	ft_printf("%e", "Error\n");
+	exit(1);
+}
+
 t_stack	*parsing(int argc, char **argv)
 {
 	t_stack	*a;
 	long	i;
+	long	num;
 
 	i = 1;
-	a = malloc(sizeof t_stack);
+	a = malloc(sizeof(t_stack));
 	if (!a)
 		return (NULL);
+	a->top = NULL;
+	a->size = 0;
 	while (i < argc)
 	{
-		if (argv[i][0] == '-' && argv[i][1] == '-')
-		{
-			i++;
-			continue ;
-		}
-		if (!isnum(argv[i]) || (outofrange(argv[i])) || isdup(a,
-				ft_atoi(argv[i])))
-		{
-			ft_printf("%e", "Error\n");
-			free(a);
-			exit(0);
-		}
-		push_back(&a, ft_atoi(argv[i]));
+		if (!is_number(argv[i]))
+			error(a);
+		num = ft_atoi(argv[i]);
+		if (out_of_range(num) || is_dup(a, num))
+			error(a);
+		push_back(a, (int)num);
+		i++;
 	}
 	return (a);
 }

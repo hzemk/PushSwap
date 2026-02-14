@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PUSHSWAP_H"
+#include "pushswap.h"
 
 static int	push(t_stack *src, t_stack *dst)
 {

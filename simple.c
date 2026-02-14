@@ -10,25 +10,44 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "pushswap.h"
+
+static void	move_min_to_top(t_stack *a)
+{
+	int	min;
+	int	index;
+
+	min = find_min(a);
+	index = find_index(a, min);
+	if (index <= a->size / 2)
+	{
+		while (find_top(a) != min)
+			ra(a);
+	}
+	else
+	{
+		while (find_top(a) != min)
+			rra(a);
+	}
+}
+
 void	simple(t_stack *a)
 {
 	t_stack	*b;
 
+	if (!a || a->size < 2)
+		return ;
 	b = malloc(sizeof(t_stack));
 	if (!b)
 		return ;
+	b->top = NULL;
 	b->size = 0;
-	b->head = NULL;
-	while (a->size)
+	while (a->size > 0)
 	{
-		if (find_min(a) == find_top(a))
-			pb(a, b);
-		else
-			ra(a);
+		move_min_to_top(a);
+		pb(a, b);
 	}
-	while (b->size)
-	{
+	while (b->size > 0)
 		pa(a, b);
-	}
 	free(b);
 }

@@ -15,6 +15,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 
+int	ft_pute(char *str);
 int	ft_putstr(char *str);
 int	ft_printf(const char *format, ...);
 int	ft_putnbr(int x);

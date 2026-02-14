@@ -37,6 +37,7 @@ long	ft_atoi(const char *nptr)
 	int		i;
 	int		sign;
 	long	result;
+	long	digit;
 
 	i = 0;
 	sign = 1;
@@ -51,10 +52,13 @@ long	ft_atoi(const char *nptr)
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		result = result * 10 + (nptr[i] - '0');
+		digit = nptr[i] - '0';
+		if (result > (LONG_MAX - digit) / 10)
+			return (LONG_MAX);
+		result = result * 10 + digit;
 		i++;
 	}
-	return (sign * result);
+	return (result * sign);
 }
 
 int	out_of_range(long num)

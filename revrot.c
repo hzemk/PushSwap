@@ -1,4 +1,4 @@
-#include "PUSHSWAP_H"
+#include "pushswap.h"
 
 static int	reverse_rotate(t_stack *stack)
 {
@@ -34,13 +34,10 @@ void	rrb(t_stack *b)
 
 void	rrr(t_stack *a, t_stack *b)
 {
-	int	rotated;
-
-	rotated = 0;
-	if (reverse_rotate(a))
-		rotated++;
-	if (reverse_rotate(b))
-		rotated++;
-	if (rotated)
+	if (a->size >= 2 && b->size >= 2)
+	{
+		reverse_rotate(a);
+		reverse_rotate(b);
 		ft_printf("rrr\n");
+	}
 }
