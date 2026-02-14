@@ -57,4 +57,6 @@ void				push_back(t_stack *stack, int value);
 void				free_stack(t_stack *stack);
 void				error(t_stack *a);
 
+/* algos */
+void				simple(t_stack *a);
 #endif
