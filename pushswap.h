@@ -1,10 +1,10 @@
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSHSWAP_H
+# define PUSHSWAP_H
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
+# include "ft_printf.h"
 # include <limits.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_node
 {
@@ -14,32 +14,55 @@ typedef struct s_node
 
 typedef struct s_stack
 {
-        int size;
-        struct s_list   *head;
-}               t_stack;
+	t_node			*top;
+	int				size;
+}					t_stack;
 
 typedef struct s_chunk
 {
-	int min;
-	int max;
-}		t_chunk;
+    int min;
+    int max;
+}       t_chunk;
 
-int     rotate(t_stack **stack);
-int     revrot(t_stack **stack);
+/* Push */
+void				pa(t_stack *a, t_stack *b);
+void				pb(t_stack *a, t_stack *b);
 
-void    ra(t_stack **sa);
-void    rb(t_stack **sb);
-void    rr(t_stack **sa, t_stack **sb);
+/* Swap */
+void				sa(t_stack *a);
+void				sb(t_stack *b);
+void				ss(t_stack *a, t_stack *b);
 
-void    rra(t_stack **sa);
-void    rrb(t_stack **sb);
-void    rrr(t_stack **sa, t_stack **sb);
+/* Rotate */
+void				ra(t_stack *a);
+void				rb(t_stack *b);
+void				rr(t_stack *a, t_stack *b);
 
-void    sa(t_stack **sa);
-void    sb(t_stack **sb);
-void    ss(t_stack **sa, t_stack **sb);
+/* Reverse Rotate */
+void				rra(t_stack *a);
+void				rrb(t_stack *b);
+void				rrr(t_stack *a, t_stack *b);
 
-void    pa(t_stack **a, t_stack **b);
-void    pb(t_stack **a, t_stack **b);
+/* Parsing */
+int					is_number(char *str);
+long				ft_atoi(const char *nptr);
+int					out_of_range(long num);
+int					is_dup(t_stack *a, long num);
+t_stack				*parsing(int argc, char **argv);
 
+/* Stack utils */
+int					find_min(t_stack *stack);
+int					find_max(t_stack *stack);
+int					find_index(t_stack *stack, int value);
+int					is_sorted(t_stack *stack);
+int					find_top(t_stack *stack);
+int					find_bottom(t_stack *stack);
+void				push_back(t_stack *stack, int value);
+
+/* Memory */
+void				free_stack(t_stack *stack);
+void				error(t_stack *a);
+
+/* algos */
+void				simple(t_stack *a);
 #endif
