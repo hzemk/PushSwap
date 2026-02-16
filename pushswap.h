@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pushswap.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/16 11:35:46 by hal-taha          #+#    #+#             */
+/*   Updated: 2026/02/16 12:26:24 by hal-taha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
@@ -20,9 +32,9 @@ typedef struct s_stack
 
 typedef struct s_chunk
 {
-    int min;
-    int max;
-}       t_chunk;
+	int				min;
+	int				max;
+}					t_chunk;
 
 /* Push */
 void				pa(t_stack *a, t_stack *b);
@@ -65,4 +77,15 @@ void				error(t_stack *a);
 
 /* algos */
 void				simple(t_stack *a);
+void    chunk_based(t_stack *a, t_stack *b);
+
+/* chunk */
+
+int					*stack_toarr(t_stack *a);
+void				sort_arr(int *arr, int n);
+t_chunk				*create_chunks(int *sorted, int chunk_count, int n);
+int					count_chunks(int n);
+void				push_toB(t_stack *a, t_stack *b, t_chunk *chunks);
+void				push_toA(t_stack *a, t_stack *b);
+
 #endif
