@@ -28,6 +28,7 @@ typedef struct s_stack
 {
 	t_node			*top;
 	int				size;
+	t_bench				*bench;
 }					t_stack;
 
 typedef struct s_chunk
@@ -35,6 +36,23 @@ typedef struct s_chunk
 	int				min;
 	int				max;
 }					t_chunk;
+
+typedef struct s_bench
+{
+        int sa;
+        int ra;
+        int pb;
+        int pa;
+        int sb;
+        int rra;
+        int rrb;
+        int rrr;
+        int rb;
+        int rr;
+        int ss;
+	double disorder;
+	int count;
+}       t_bench;
 
 /* Push */
 void				pa(t_stack *a, t_stack *b);

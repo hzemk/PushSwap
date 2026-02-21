@@ -23,13 +23,19 @@ static int	reverse_rotate(t_stack *stack)
 void	rra(t_stack *a)
 {
 	if (reverse_rotate(a))
+	{
 		ft_printf("rra\n");
+		a->bench->rra++;
+	}
 }
 
 void	rrb(t_stack *b)
 {
 	if (reverse_rotate(b))
+	{
 		ft_printf("rrb\n");
+		b->bench->rrb++;
+	}
 }
 
 void	rrr(t_stack *a, t_stack *b)
@@ -39,5 +45,6 @@ void	rrr(t_stack *a, t_stack *b)
 		reverse_rotate(a);
 		reverse_rotate(b);
 		ft_printf("rrr\n");
+		a->bench->rrr++;
 	}
 }
