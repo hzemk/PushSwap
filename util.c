@@ -22,3 +22,15 @@ int	find_top(t_stack *a)
 	}
 	return(a-> value);
 }
+int strcmp(char *s, char *j)
+{
+        int i;
+
+        i=0;
+        if(!s)
+                return (NULL);
+        while(s[i] && j[i] && s[i] == j[i])
+                i++;
+        return (s[i] - j[i]);
+
+}
