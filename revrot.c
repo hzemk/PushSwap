@@ -26,6 +26,7 @@ void	rra(t_stack *a)
 	{
 		ft_printf("rra\n");
 		a->bench->rra++;
+		a->bench->count++;
 	}
 }
 
@@ -35,6 +36,7 @@ void	rrb(t_stack *b)
 	{
 		ft_printf("rrb\n");
 		b->bench->rrb++;
+		b->bench->count++;
 	}
 }
 
@@ -46,5 +48,6 @@ void	rrr(t_stack *a, t_stack *b)
 		reverse_rotate(b);
 		ft_printf("rrr\n");
 		a->bench->rrr++;
+		a->bench->count++;
 	}
 }

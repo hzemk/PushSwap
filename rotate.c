@@ -35,6 +35,7 @@ void	ra(t_stack *a)
 	{
 		ft_printf("ra\n");
 		a->bench->ra++;
+		a->bench->count++;
 	}
 }
 
@@ -44,6 +45,7 @@ void	rb(t_stack *b)
 	{
 		ft_printf("rb\n");
 		b->bench->rb++;
+		b->bench->count++;
 	}
 }
 
@@ -55,5 +57,6 @@ void	rr(t_stack *a, t_stack *b)
 		rotate(b);
 		ft_printf("rr\n");
 		a->bench->rr++;
+		a->bench->count++;
 	}
 }
