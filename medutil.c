@@ -17,7 +17,7 @@ int	*stack_toarr(t_stack *a)
 	int		n;
 	int		*arr;
 	t_node	*node;
-	int	i;
+	int		i;
 
 	n = a->size;
 	arr = (int *)malloc(sizeof(int) * n);
@@ -36,13 +36,14 @@ int	*stack_toarr(t_stack *a)
 
 void	sort_arr(int *arr, int n)
 {
-	int min;
-	int i;
+	int	min;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < n - 1)
 	{
-		int j = 0;
+		j = 0;
 		while (j < (n - i - 1))
 		{
 			if (arr[j] > arr[j + 1])
@@ -94,14 +95,14 @@ void	push_toB(t_stack *a, t_stack *b, t_chunk *chunk)
 	int	i;
 	int	head;
 
-	if(!a || !a->top)
+	if (!a || !a->top)
 		return ;
 	i = 0;
 	size = a->size;
 	while (i < size)
 	{
-		if(!a->top)
-			break;
+		if (!a->top)
+			break ;
 		head = a->top->value;
 		if (head >= chunk->min && head <= chunk->max)
 			pb(a, b);

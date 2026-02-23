@@ -1,14 +1,10 @@
 #include "pushswap.h"
 
-void select_strategy(t_stack *a, t_stack *b, char **argv)
+void	select_strategy(t_stack *a, t_stack *b, char **argv, int argc)
 {
-	
-		if (strcmp(argv[1], "--simple") == 0)
-                        simple(a);
-                if (strcmp(argv[1], "--medium") == 0)
-                        medium(a, b);
-                if (strcmp(argv[1], "--complex") == 0)
-                        complex_sort(a, b);
-                else
-                        adaptive(a, b);
+	int	algo;
+
+	algo = check_flag(argv, argc);
+	if (algo == 0)
+		ada
 }

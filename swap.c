@@ -19,13 +19,21 @@ static int	swap(t_stack *stack)
 void	sa(t_stack *a)
 {
 	if (swap(a))
+	{
 		ft_printf("sa\n");
+		a->bench->sa++;
+		a->bench->count++;
+	}
 }
 
 void	sb(t_stack *b)
 {
 	if (swap(b))
+	{
 		ft_printf("sb\n");
+		b->bench->sb++;
+		b->bench->count++;
+	}
 }
 
 void	ss(t_stack *a, t_stack *b)
@@ -35,5 +43,7 @@ void	ss(t_stack *a, t_stack *b)
 		swap(a);
 		swap(b);
 		ft_printf("ss\n");
+		a->bench->count++;
+		a->bench->ss++;
 	}
 }

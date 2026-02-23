@@ -55,16 +55,14 @@ void	push_back(t_stack *stack, int value)
 	stack->size++;
 }
 
-int strcmp(char *s, char *j)
+int	strcmp(char *s, char *j)
 {
-        int i;
+	int	i;
 
-        i=0;
-        if(!s)
-                return (NULL);
-        while(s[i] && j[i] && s[i] == j[i])
-                i++;
-        return (s[i] - j[i]);
-
+	i = 0;
+	if (!s)
+		return (NULL);
+	while (s[i] && j[i] && s[i] == j[i])
+		i++;
+	return (s[i] - j[i]);
 }
-

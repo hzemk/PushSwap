@@ -30,11 +30,19 @@ static int	push(t_stack *src, t_stack *dst)
 void	pa(t_stack *a, t_stack *b)
 {
 	if (push(b, a))
+	{
 		ft_printf("pa\n");
+		a->bench->pa++;
+		a->bench->count++;
+	}
 }
 
 void	pb(t_stack *a, t_stack *b)
 {
 	if (push(a, b))
+	{
 		ft_printf("pb\n");
+		a->bench->pb++;
+		a->bench->count++;
+	}
 }
