@@ -1,12 +1,14 @@
 #include "pushswap.h"
 
-void	bench(t_stack *a, t_stack *b)
+void	bench(t_stack *a)
 {
-	printf("[bench] disorder: %d%% %c ", (a->bench->disorder * 100), '\n');
-	printf("[bench] strategy: %c", check_flag(), '\n');
-	sum_bench(a, b);
-	op_calc(a);
-	printf("%%%c", '\n');
+	ft_printf("[bench] disorder: %.2f%%\n", a->bench->disorder * 100);
+	ft_printf("[bench] total: %d\n", a->bench->count);
+	ft_printf("[bench] sa:%d sb:%d ss:%d pa:%d pb:%d\n", a->bench->sa,
+		a->bench->sb, a->bench->ss, a->bench->pa, a->bench->pb);
+	ft_printf("[bench] ra:%d rb:%d rr:%d rra:%d rrb:%d rrr:%d\n", a->bench->ra,
+		a->bench->rb, a->bench->rr, a->bench->rra, a->bench->rrb,
+		a->bench->rrr);
 }
 
 void	op_calc(t_stack *a)

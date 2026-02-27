@@ -18,6 +18,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define MODE_ADAPTIVE -1
+# define MODE_SIMPLE 1
+# define MODE_MEDIUM 2
+# define MODE_COMPLEX 3
+# define MODE_ERROR -2
+
 typedef struct s_node
 {
 	int				value;
