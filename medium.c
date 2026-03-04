@@ -12,7 +12,7 @@
 
 #include "pushswap.h"
 
-void	chunk_based(t_stack *a, t_stack *b)
+void	medium(t_stack *a, t_stack *b)
 {
 	int		n;
 	int		count;

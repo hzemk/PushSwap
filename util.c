@@ -61,7 +61,7 @@ int	strcmp(char *s, char *j)
 
 	i = 0;
 	if (!s)
-		return (NULL);
+		return (0);
 	while (s[i] && j[i] && s[i] == j[i])
 		i++;
 	return (s[i] - j[i]);

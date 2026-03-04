@@ -32,7 +32,7 @@ static void	launch_algo(int mode, t_stack *a, t_stack *b)
 	else if (mode == MODE_MEDIUM)
 		medium(a, b);
 	else if (mode == MODE_COMPLEX)
-		chunk_based(a, b);
+		complex_sort(a, b);
 }
 
 int	main(int argc, char **argv)

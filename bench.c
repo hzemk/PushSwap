@@ -3,6 +3,7 @@
 void	bench(t_stack *a)
 {
 	ft_printf("[bench] disorder: %.2f%%\n", a->bench->disorder * 100);
+		// initialize %.2f
 	ft_printf("[bench] total: %d\n", a->bench->count);
 	ft_printf("[bench] sa:%d sb:%d ss:%d pa:%d pb:%d\n", a->bench->sa,
 		a->bench->sb, a->bench->ss, a->bench->pa, a->bench->pb);
@@ -11,37 +12,26 @@ void	bench(t_stack *a)
 		a->bench->rrr);
 }
 
-void	op_calc(t_stack *a)
+void                            init_bench(t_stack *a, t_stack *b)
 {
-	int	pa;
-	int	pb;
-	int	ra;
-	int	rra;
-	int	rb;
-	int	rrb;
-	int	rr;
-	int	rrr;
-	int	sa;
-	int	sb;
-	int	ss;
-	int	count;
+	init_bs(a);
+	init_bs(b);
+}
 
-	pa = a->bench->pa;
-	pb = a->bench->pb;
-	ra = a->bench->ra;
-	rra = a->bench->rra;
-	rb = a->bench->rb;
-	rrb = a->bench->rrb;
-	rr = a->bench->rr;
-	rrr = a->bench->rrr;
-	sa = a->bench->sa;
-	sb = a->bench->sb;
-	ss = a->bench->ss;
-	count = a->bench->count;
-	ft_printf("[bench] total: %d", count);
-	ft_printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d", sa, sb, ss, pa, pb);
-	ft_printf("[bench] ra:%d rb: %d rr:%d rra: %d rrb: %d rrr: %d", ra, rb, rr,
-		rra, rrb, rrr);
+static void	init_bs(t_stack *a)
+{
+	a->bench->pa = 0;
+	a->bench->pb = 0;
+	a->bench->ra = 0;
+	a->bench->rra = 0;
+	a->bench->rb = 0;
+	a->bench->rrb = 0;
+	a->bench->rr = 0;
+	a->bench->rrr = 0;
+	a->bench->sa = 0;
+	a->bench->sb = 0;
+	a->bench->ss = 0;
+	a->bench->count = 0;
 }
 
 void	sum_bench(t_stack *a, t_stack *b)

@@ -30,19 +30,6 @@ typedef struct s_node
 	struct s_node	*next;
 }					t_node;
 
-typedef struct s_stack
-{
-	t_node			*top;
-	int				size;
-	t_bench			*bench;
-}					t_stack;
-
-typedef struct s_chunk
-{
-	int				min;
-	int				max;
-}					t_chunk;
-
 typedef struct s_bench
 {
 	int				sa;
@@ -59,6 +46,19 @@ typedef struct s_bench
 	double			disorder;
 	int				count;
 }					t_bench;
+
+typedef struct s_stack
+{
+	t_node			*top;
+	int				size;
+	t_bench			*bench;
+}					t_stack;
+
+typedef struct s_chunk
+{
+	int				min;
+	int				max;
+}					t_chunk;
 
 /* Push */
 void				pa(t_stack *a, t_stack *b);
@@ -101,7 +101,8 @@ void				error(t_stack *a);
 
 /* algos */
 void				simple(t_stack *a);
-void				chunk_based(t_stack *a, t_stack *b);
+void				medium(t_stack *a, t_stack *b);
+void				complex_sort(t_stack *a, t_stack *b);
 
 /* chunk */
 
@@ -111,5 +112,25 @@ t_chunk				*create_chunks(int *sorted, int chunk_count, int n);
 int					count_chunks(int n);
 void				push_toB(t_stack *a, t_stack *b, t_chunk *chunks);
 void				push_toA(t_stack *a, t_stack *b);
+
+/* flag */
+int					check_flag(char **argv, int argc);
+
+/* disorder || adaptive */
+double				disorder(t_stack *a);
+void				adaptive(t_stack *a, t_stack *b);
+
+/*  initialization  */
+t_stack				*init_stack(void);
+void				init_bench(t_stack *a, t_stack *b);
+
+/*  bench  */
+void				print_bench(t_stack *a);
+void				free_all(t_stack *a, t_stack *b);
+
+void				select_strategy(t_stack *a, t_stack *b, char **argv,
+						int argc);
+
+int     strcmp(char *s, char *j);
 
 #endif
