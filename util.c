@@ -55,7 +55,7 @@ void	push_back(t_stack *stack, int value)
 	stack->size++;
 }
 
-int	strcmp(char *s, char *j)
+int	ft_strcmp(char *s, char *j)
 {
 	int	i;
 

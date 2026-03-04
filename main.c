@@ -40,22 +40,22 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 	int		mode;
-	int		bench;
+	int		bench1;
 
 	if (argc < 2)
 		return (0);
 	mode = check_flag(argv, argc);
 	if (mode == MODE_ERROR)
 		return (ft_printf("%e", "Error\n"), 1);
-	mode = extract_mode(mode, &bench);
+	mode = extract_mode(mode, &bench1);
 	a = parsing(argc, argv);
 	b = init_stack();
 	init_bench(a, b);
 	a->bench->disorder = disorder(a);
 	if (!is_sorted(a))
 		launch_algo(mode, a, b);
-	if (bench)
-		print_bench(a);
+	if (bench1)
+		bench(a);
 	free_all(a, b);
 	return (0);
 }

@@ -17,6 +17,7 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
+#include <string.h>
 
 # define MODE_ADAPTIVE -1
 # define MODE_SIMPLE 1
@@ -125,12 +126,12 @@ t_stack				*init_stack(void);
 void				init_bench(t_stack *a, t_stack *b);
 
 /*  bench  */
-void				print_bench(t_stack *a);
+void				bench(t_stack *a);
 void				free_all(t_stack *a, t_stack *b);
 
 void				select_strategy(t_stack *a, t_stack *b, char **argv,
 						int argc);
 
-int     strcmp(char *s, char *j);
+int					ft_strcmp(char *s, char *j);
 
 #endif
