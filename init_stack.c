@@ -32,6 +32,6 @@ void	free_all(t_stack *a, t_stack *b)
 	free_nodes(a);
 	free(a);
 	free(b->bench);
-    free_nodes(b);
-    free(b);
+	free_nodes(b);
+	free(b);
 }

@@ -36,17 +36,17 @@ void	sum_bench(t_stack *a, t_stack *b)
 	a->bench->count = a->bench->count + b->bench->count;
 }
 
-void    init_bench(t_stack *a, t_stack *b)
+void	init_bench(t_stack *a, t_stack *b)
 {
-    a->bench = malloc(sizeof(t_bench));
-    if (!a->bench)
-        return ;
-    b->bench = malloc(sizeof(t_bench));
-    if (!b->bench)
-    {
-        free(a->bench);
-        return ;
-    }
-    init_bs(a);
-    init_bs(b);
+	a->bench = malloc(sizeof(t_bench));
+	if (!a->bench)
+		return ;
+	b->bench = malloc(sizeof(t_bench));
+	if (!b->bench)
+	{
+		free(a->bench);
+		return ;
+	}
+	init_bs(a);
+	init_bs(b);
 }

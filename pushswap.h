@@ -16,8 +16,8 @@
 # include "ft_printf.h"
 # include <limits.h>
 # include <stdlib.h>
+# include <string.h>
 # include <unistd.h>
-#include <string.h>
 
 # define MODE_ADAPTIVE -1
 # define MODE_SIMPLE 1
