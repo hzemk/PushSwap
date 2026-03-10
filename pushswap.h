@@ -133,5 +133,5 @@ void				select_strategy(t_stack *a, t_stack *b, char **argv,
 						int argc);
 
 int					ft_strcmp(char *s, char *j);
-
+void				sum_bench(t_stack *a, t_stack *b);
 #endif

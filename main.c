@@ -35,6 +35,22 @@ static void	launch_algo(int mode, t_stack *a, t_stack *b)
 		complex_sort(a, b);
 }
 
+void	print_stack(t_stack *stack)
+{
+	t_node	*cur;
+
+	if (!stack)
+		return ;
+	cur = stack->top;
+	ft_printf("Stack (%d): ", stack->size);
+	while (cur)
+	{
+		ft_printf("%d ", cur->value);
+		cur = cur->next;
+	}
+	ft_printf("\n");
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
@@ -55,7 +71,11 @@ int	main(int argc, char **argv)
 	if (!is_sorted(a))
 		launch_algo(mode, a, b);
 	if (bench1)
+	{
+		sum_bench(a, b);
 		bench(a);
+	}
+	print_stack(a);
 	free_all(a, b);
 	return (0);
 }

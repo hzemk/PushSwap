@@ -66,6 +66,8 @@ static int	handle_format(char spec, va_list args)
 		return (ft_putptr(va_arg(args, unsigned long)));
 	if (spec == '%')
 		return (ft_putchar('%'));
+	if (spec == 'f')
+		return (ft_float(va_arg(args, double)));
 	return (0);
 }
 

@@ -23,15 +23,17 @@ static int	get_algo(char *arg)
 	return (MODE_ERROR);
 }
 
-static int	parse_flags(char **argv, int argc, int i)
+static int	parse_flags(char **argv, int start, int end)
 {
+	int	i;
 	int	algo;
 	int	bench;
 	int	tmp;
 
 	algo = MODE_ADAPTIVE;
 	bench = 0;
-	while (i < argc)
+	i = start;
+	while (i < end)
 	{
 		if (strcmp(argv[i], "--bench") == 0)
 			bench = 1;
@@ -54,7 +56,7 @@ int	check_flag(char **argv, int argc)
 	int	i;
 
 	i = 1;
-	while (i < argc && is_number(argv[i]))
+	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
 		i++;
-	return (parse_flags(argv, argc, i));
+	return (parse_flags(argv, 1, i));
 }

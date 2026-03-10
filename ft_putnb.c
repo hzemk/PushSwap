@@ -68,3 +68,32 @@ int	ft_pute(char *str)
 	}
 	return (i);
 }
+
+int	ft_float(double x)
+{
+	double		i;
+	long int	nb;
+	double		frac;
+
+	nb = (long int)x;
+	i = 0;
+	if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb = -nb;
+		x = -x;
+		i++;
+	}
+	if (nb > 9)
+		i += ft_float(nb / 10);
+	i += ft_putchar(nb % 10 + '0');
+	frac = x - (long int)x;
+	if (frac > 0)
+	{
+		i += ft_putchar('.');
+		frac *= 100;
+		i += ft_putchar(((int)frac / 10) + '0');
+		i += ft_putchar(((int)frac % 10) + '0');
+	}
+	return (i);
+}

@@ -2,8 +2,7 @@
 
 void	bench(t_stack *a)
 {
-	ft_printf("[bench] disorder: %.2f%%\n", a->bench->disorder * 100);
-	// initialize %.2f
+	ft_printf("[bench] disorder: %f%%\n", a->bench->disorder * 100);
 	ft_printf("[bench] total: %d\n", a->bench->count);
 	ft_printf("[bench] sa:%d sb:%d ss:%d pa:%d pb:%d\n", a->bench->sa,
 		a->bench->sb, a->bench->ss, a->bench->pa, a->bench->pb);

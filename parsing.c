@@ -34,32 +34,51 @@ void	error(t_stack *a)
 	exit(1);
 }
 
-t_stack	*parsing(int argc, char **argv)
+static int	skip_flags(char **argv, int argc)
 {
-	t_stack	*a;
-	long	num;
-	int		i;
+	int	i;
 
-	a = malloc(sizeof(t_stack));
-	if (!a)
-		return (NULL);
-	a->top = NULL;
-	a->size = 0;
-	a->bench = NULL;
 	i = 1;
-	while (i < argc)
+	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
+		i++;
+	return (i);
+}
+
+static void	parse_arg(t_stack *a, char *arg)
+{
+	int		i;
+	long	num;
+
+	i = 0;
+	while (arg[i])
 	{
-		if (argv[i][0] == '-' && argv[i][1] == '-')
-		{
+		while (arg[i] == ' ')
 			i++;
-			continue;
-		}
-		if (!is_number(argv[i]))
+		if (!arg[i])
+			break ;
+		if (!is_number(&arg[i]))
 			error(a);
-		num = ft_atoi(argv[i]);
+		num = ft_atoi(&arg[i]);
 		if (out_of_range(num) || is_dup(a, num))
 			error(a);
 		push_back(a, (int)num);
+		while (arg[i] && arg[i] != ' ')
+			i++;
+	}
+}
+
+t_stack	*parsing(int argc, char **argv)
+{
+	t_stack	*a;
+	int		i;
+
+	a = init_stack();
+	if (!a)
+		return (NULL);
+	i = skip_flags(argv, argc);
+	while (i < argc)
+	{
+		parse_arg(a, argv[i]);
 		i++;
 	}
 	if (a->size == 0)

@@ -23,5 +23,5 @@ int	ft_putunsigned(unsigned int x);
 int	ft_putchar(char c);
 int	ft_puthex(unsigned long nbr, char spec);
 int	ft_putptr(unsigned long n);
-
+int	ft_float(double x);
 #endif

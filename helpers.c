@@ -21,9 +21,9 @@ int	is_number(char *str)
 	i = 0;
 	if (str[i] == '+' || str[i] == '-')
 		i++;
-	if (str[i] == '\0')
+	if (!str[i] || str[i] == ' ')
 		return (0);
-	while (str[i])
+	while (str[i] && str[i] != ' ')
 	{
 		if (str[i] < '0' || str[i] > '9')
 			return (0);
