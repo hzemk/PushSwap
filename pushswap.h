@@ -6,7 +6,7 @@
 /*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 11:35:46 by hal-taha          #+#    #+#             */
-/*   Updated: 2026/02/16 12:26:24 by hal-taha         ###   ########.fr       */
+/*   Updated: 2026/03/10 15:05:13 by hal-taha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,9 +129,7 @@ void				init_bench(t_stack *a, t_stack *b);
 void				bench(t_stack *a);
 void				free_all(t_stack *a, t_stack *b);
 
-void				select_strategy(t_stack *a, t_stack *b, char **argv,
-						int argc);
-
 int					ft_strcmp(char *s, char *j);
 void				sum_bench(t_stack *a, t_stack *b);
+void    			pick_algo(char *arg , double dis);
 #endif

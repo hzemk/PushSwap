@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bench.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/10 14:41:45 by hal-taha          #+#    #+#             */
+/*   Updated: 2026/03/10 15:09:15 by hal-taha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
 
 void	bench(t_stack *a)
 {
 	ft_printf("[bench] disorder: %f%%\n", a->bench->disorder * 100);
+	ft_printf("[bench] strategy:  ", pick_algo(,a->bench->disorder));
 	ft_printf("[bench] total: %d\n", a->bench->count);
 	ft_printf("[bench] sa:%d sb:%d ss:%d pa:%d pb:%d\n", a->bench->sa,
 		a->bench->sb, a->bench->ss, a->bench->pa, a->bench->pb);
