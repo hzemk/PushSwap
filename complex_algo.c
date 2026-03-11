@@ -6,7 +6,7 @@
 /*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 15:21:27 by hal-taha          #+#    #+#             */
-/*   Updated: 2026/03/10 16:22:24 by hal-taha         ###   ########.fr       */
+/*   Updated: 2026/03/11 15:38:12 by leobeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,28 @@ void	complex_sort(t_stack *a, t_stack *b)
 {
 	int	*arr;
 	int	i;
+	int bits;
+	int j;
 
-	arr = malloc(a->size);
 	arr = stack_toarr(a);
 	sort_arr(arr, a->size);
-
-	while()
+	bits=find_bits(a->size);
+	a = convert(a, arr);
+	i=0;
+	while(i < bits)
 	{
+		j=0;
+		while(j < a->size)
+		{
+			if(((a->top->vale >> i) & 1) == 0)
+				pb(a, b);
+			else
+				ra(a);
+			j++;
+		}
+		i++;
+		while(b->size > 0)
+			pa(a, b);
 	}
 }
 
@@ -59,7 +74,7 @@ t_stack	*convert(t_stack *a, int *arr)
 	return (a);
 }
 
-int find_bits(int *arr ,int size)
+int find_bits(int size)
 {
 	unsigned	index;
 	int	couter;
@@ -71,7 +86,7 @@ int find_bits(int *arr ,int size)
 		index /= 2;
 		counter++;
 	}
-	return (counter - 1);
+	return (counter);
 }
 
 int convert_bit()
