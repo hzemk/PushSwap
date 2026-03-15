@@ -6,7 +6,7 @@
 /*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 00:00:00 by hal-taha          #+#    #+#             */
-/*   Updated: 2026/02/27 00:00:00 by hal-taha         ###   ########.fr       */
+/*   Updated: 2026/03/15 13:11:07 by leobeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static int	get_algo(char *arg)
 		return (MODE_MEDIUM);
 	if (strcmp(arg, "--complex") == 0)
 		return (MODE_COMPLEX);
+	if (strcmp(arg, "--adaptive") == 0)
+		return (MODE_ADAPTIVE);
 	return (MODE_ERROR);
 }
 

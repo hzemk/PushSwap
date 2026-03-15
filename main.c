@@ -6,7 +6,7 @@
 /*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 15:10:04 by hal-taha          #+#    #+#             */
-/*   Updated: 2026/02/16 15:48:19 by hal-taha         ###   ########.fr       */
+/*   Updated: 2026/03/15 13:30:26 by leobeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,8 @@ int	main(int argc, char **argv)
 	if (bench1)
 	{
 		sum_bench(a, b);
-		bench(a);
+		bench(a, argv[1], argv[2]);
 	}
-	print_stack(a);
 	free_all(a, b);
 	return (0);
 }

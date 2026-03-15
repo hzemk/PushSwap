@@ -6,7 +6,7 @@
 /*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 11:35:46 by hal-taha          #+#    #+#             */
-/*   Updated: 2026/03/10 15:05:13 by hal-taha         ###   ########.fr       */
+/*   Updated: 2026/03/15 13:26:00 by leobeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <string.h>
 # include <unistd.h>
 
-# define MODE_ADAPTIVE -1
+# define MODE_ADAPTIVE 4
 # define MODE_SIMPLE 1
 # define MODE_MEDIUM 2
 # define MODE_COMPLEX 3
@@ -126,10 +126,13 @@ t_stack				*init_stack(void);
 void				init_bench(t_stack *a, t_stack *b);
 
 /*  bench  */
-void				bench(t_stack *a);
+void				bench(t_stack *a, char *arg, char *argv);
 void				free_all(t_stack *a, t_stack *b);
 
 int					ft_strcmp(char *s, char *j);
 void				sum_bench(t_stack *a, t_stack *b);
-void    			pick_algo(char *arg , double dis);
+char				*pick_algo(char *arg, char *argv, double dis);
+int					find_bits(int size);
+t_stack *convert(t_stack *a, int *arr);
+int get_index(int *arr, int top, int size);
 #endif
