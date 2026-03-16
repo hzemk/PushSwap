@@ -1,36 +1,50 @@
-NAME = pushswap
+NAME	= pushswap
 
+CC		= cc
+CFLAGS	= -Wall -Wextra -Werror
 
-CC = cc 
+AR		= ar rcs
+RM		= rm -f
 
-CFLAGS = -Wall -Wextra -Werror
+SRCS	=adaptive.c\
+	 complex_algo.c\
+	 ft_putnb.c\
+	 init_stack.c\
+	 medium.c\
+	 pick_algo.c\
+	 simple.c\
+	 util.c\
+	 bench.c\
+	 disorder.c\
+	 helpers2.c\
+	 main.c\
+	 medutil.c\
+	 printf.c\
+	 revrot.c\
+	 split.c\
+	 check_flag.c\
+	 helpers.c\
+	 parsing.c\
+	 push.c\
+	 rotate.c\
+	 swap.c
 
-AR = ar rcs
-
-SRCS = ft_printf.c \
-       ft_putchar.c \
-       ft_putstr.c \
-       ft_putnbr.c \
-       ft_putnbr_unsigned.c \
-       ft_puthex.c \
-       ft_putptr.c
-
-OBJS = $(SRCS:.c=.o)\\ must not relink
-
-HEADER = pushswap.h
+OBJS	= $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS)	$(OBJS) -O $(NAME)
+	$(AR) $(NAME) $(OBJS)
 
 %.o: %.c
-	$(CC)	$(CFLAGS)	-c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	$(RM) $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re
