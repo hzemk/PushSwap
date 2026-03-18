@@ -6,7 +6,7 @@
 /*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 15:42:36 by hal-taha          #+#    #+#             */
-/*   Updated: 2026/02/08 15:47:28 by hal-taha         ###   ########.fr       */
+/*   Updated: 2026/03/18 13:16:17 by hal-taha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,20 @@ int	find_top(t_stack *stack)
 	return (stack->top->value);
 }
 
+void	push_back(t_stack *a, int value)
+{
+	t_node	*new;
+
+	new = malloc(sizeof(t_node));
+	if (!new)
+		return ;
+	new->value = value;
+	new->next = a->top;
+	a->top = new;
+	a->size++;
+}
+
+/*
 void	push_back(t_stack *stack, int value)
 {
 	t_node	*new;
@@ -54,7 +68,7 @@ void	push_back(t_stack *stack, int value)
 	}
 	stack->size++;
 }
-
+*/
 int	ft_strcmp(char *s, char *j)
 {
 	int	i;

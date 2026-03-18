@@ -6,7 +6,7 @@
 /*   By: leobeida <leobeida@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 11:22:07 by leobeida          #+#    #+#             */
-/*   Updated: 2026/03/18 11:22:08 by leobeida         ###   ########.fr       */
+/*   Updated: 2026/03/18 13:42:06 by hal-taha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	rra(t_stack *a)
 {
 	if (reverse_rotate(a))
 	{
-		ft_printf("rra\n");
+		write(2, "rra\n", 4);
 		a->bench->rra++;
 		a->bench->count++;
 	}
@@ -46,7 +46,7 @@ void	rrb(t_stack *b)
 {
 	if (reverse_rotate(b))
 	{
-		ft_printf("rrb\n");
+		write(2, "rrb\n", 4);
 		b->bench->rrb++;
 		b->bench->count++;
 	}
@@ -58,7 +58,7 @@ void	rrr(t_stack *a, t_stack *b)
 	{
 		reverse_rotate(a);
 		reverse_rotate(b);
-		ft_printf("rrr\n");
+		write(2, "rrr\n", 4);
 		a->bench->rrr++;
 		a->bench->count++;
 	}

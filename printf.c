@@ -6,7 +6,7 @@
 /*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 00:52:41 by hal-taha          #+#    #+#             */
-/*   Updated: 2025/12/29 16:34:01 by hal-taha         ###   ########.fr       */
+/*   Updated: 2026/03/18 13:34:54 by hal-taha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_putstr(char *str)
 
 int	ft_putchar(char c)
 {
-	return (write(1, &c, 1));
+	return (write(2, &c, 1));
 }
 
 int	ft_puthex(unsigned long nbr, char spec)
