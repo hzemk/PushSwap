@@ -12,12 +12,12 @@
 
 #include "pushswap.h"
 
-void simple_five(t_stack *a, t_stack *b)
+void	simple_five(t_stack *a, t_stack *b)
 {
 	while (a->size != 3)
 	{
 		if (a->top->value == find_min(a))
-			pb(a,b);
+			pb(a, b);
 		else
 			ra(a);
 	}
@@ -25,8 +25,8 @@ void simple_five(t_stack *a, t_stack *b)
 		rra(a);
 	if (a->top > a->top->next)
 		sa(a);
-	pa(a,b);
-	pa(a,b);
+	pa(a, b);
+	pa(a, b);
 }
 
 static void	move_min_to_top(t_stack *a)

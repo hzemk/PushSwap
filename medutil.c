@@ -6,7 +6,7 @@
 /*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 11:15:06 by hal-taha          #+#    #+#             */
-/*   Updated: 2026/02/16 15:43:12 by hal-taha         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:29:22 by leobeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,28 +57,6 @@ void	sort_arr(int *arr, int n)
 		i++;
 	}
 }
-t_chunk	*create_chunks(int *sorted, int chunk_count, int n)
-{
-	t_chunk	*chunks;
-	int		len;
-	int		i;
-
-	chunks = malloc(sizeof(t_chunk) * chunk_count);
-	if (!chunks)
-		return (0);
-	len = n / chunk_count;
-	i = 0;
-	while (i < chunk_count)
-	{
-		chunks[i].min = sorted[i * len];
-		if (i == (chunk_count - 1))
-			chunks[i].max = sorted[n - 1];
-		else
-			chunks[i].max = sorted[(i + 1) * len - 1];
-		i++;
-	}
-	return (chunks);
-}
 
 int	count_chunks(int n)
 {
@@ -89,7 +67,8 @@ int	count_chunks(int n)
 		i++;
 	return (i - 1);
 }
-void	push_toB(t_stack *a, t_stack *b, t_chunk *chunk)
+
+void	push_tob(t_stack *a, t_stack *b, t_chunk *chunk)
 {
 	int	size;
 	int	i;
@@ -112,7 +91,7 @@ void	push_toB(t_stack *a, t_stack *b, t_chunk *chunk)
 	}
 }
 
-void	push_toA(t_stack *a, t_stack *b)
+void	push_toa(t_stack *a, t_stack *b)
 {
 	int	maxi;
 

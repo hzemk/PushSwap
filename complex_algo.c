@@ -6,29 +6,10 @@
 /*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 15:21:27 by hal-taha          #+#    #+#             */
-/*   Updated: 2026/03/18 11:16:17 by hal-taha         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:34:25 by leobeida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "pushswap.h"
-
-void	complex_sort(t_stack *a, t_stack *b)
-{
-	int	*arr;
-	int	i;
-	int	bits;
-
-	arr = stack_toarr(a);
-	sort_arr(arr, a->size);
-	bits = find_bits(a->size - 1);
-	convert(a, arr);
-	i = 0;
-	while (i < bits)
-	{
-		process_bits(a, b, i);
-		i++;
-	}
-	free(arr);
-}
 
 static void	process_bits(t_stack *a, t_stack *b, int i)
 {
@@ -47,6 +28,25 @@ static void	process_bits(t_stack *a, t_stack *b, int i)
 	}
 	while (b->size > 0)
 		pa(a, b);
+}
+
+void	complex_sort(t_stack *a, t_stack *b)
+{
+	int	*arr;
+	int	i;
+	int	bits;
+
+	arr = stack_toarr(a);
+	sort_arr(arr, a->size);
+	bits = find_bits(a->size - 1);
+	convert(a, arr);
+	i = 0;
+	while (i < bits)
+	{
+		process_bits(a, b, i);
+		i++;
+	}
+	free(arr);
 }
 
 int	get_index(int *arr, int top, int size)
