@@ -6,7 +6,7 @@
 /*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 15:21:27 by hal-taha          #+#    #+#             */
-/*   Updated: 2026/03/15 12:49:30 by leobeida         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:16:17 by hal-taha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "pushswap.h"
@@ -16,31 +16,37 @@ void	complex_sort(t_stack *a, t_stack *b)
 	int	*arr;
 	int	i;
 	int	bits;
-	int	j;
-	int size;
 
-	size = a->size;
 	arr = stack_toarr(a);
 	sort_arr(arr, a->size);
 	bits = find_bits(a->size - 1);
-	a = convert(a, arr);
+	convert(a, arr);
 	i = 0;
 	while (i < bits)
 	{
-		j = 0;
-		while (j < size)
-		{
-			if (((a->top->value >> i) & 1) == 0)
-				pb(a, b);
-			else
-				ra(a);
-			j++;
-		}
+		process_bits(a, b, i);
 		i++;
-		while (b->size > 0)
-			pa(a, b);
 	}
 	free(arr);
+}
+
+static void	process_bits(t_stack *a, t_stack *b, int i)
+{
+	int	j;
+	int	size;
+
+	j = 0;
+	size = a->size;
+	while (j < size)
+	{
+		if (((a->top->value >> i) & 1) == 0)
+			pb(a, b);
+		else
+			ra(a);
+		j++;
+	}
+	while (b->size > 0)
+		pa(a, b);
 }
 
 int	get_index(int *arr, int top, int size)
@@ -73,17 +79,12 @@ t_stack	*convert(t_stack *a, int *arr)
 	return (a);
 }
 
-int	find_bits(int size)
+int	find_bits(int max)
 {
-	unsigned int	index;
-	int				counter;
+	int	bits;
 
-	index = size - 1;
-	counter = 0;
-	while (index)
-	{
-		index /= 2;
-		counter++;
-	}
-	return (counter);
+	bits = 0;
+	while ((max >> bits) != 0)
+		bits++;
+	return (bits);
 }

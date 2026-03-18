@@ -6,7 +6,7 @@
 /*   By: leobeida <leobeida@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 11:00:00 by leobeida          #+#    #+#             */
-/*   Updated: 2026/02/16 15:43:39 by hal-taha         ###   ########.fr       */
+/*   Updated: 2026/03/18 10:57:38 by hal-taha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ void	medium(t_stack *a, t_stack *b)
 	t_chunk	*chunk;
 
 	n = a->size;
+	if (n == 5 || n == 4)
+	{
+		simple_five(a, b);
+		return ;
+	}
 	count = count_chunks(n);
 	sorted = stack_toarr(a);
 	sort_arr(sorted, n);
