@@ -6,7 +6,7 @@
 /*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 18:41:46 by hal-taha          #+#    #+#             */
-/*   Updated: 2026/03/18 13:42:52 by hal-taha         ###   ########.fr       */
+/*   Updated: 2026/03/29 23:12:40 by hal-taha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	pa(t_stack *a, t_stack *b)
 {
 	if (push(b, a))
 	{
-		write(2, "pa\n", 3);
+		write(1, "pa\n", 3);
 		a->bench->pa++;
 		a->bench->count++;
 	}
@@ -41,7 +41,7 @@ void	pb(t_stack *a, t_stack *b)
 {
 	if (push(a, b))
 	{
-		write(2, "pb\n", 3);
+		write(1, "pb\n", 3);
 		a->bench->pb++;
 		a->bench->count++;
 	}

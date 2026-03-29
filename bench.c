@@ -6,7 +6,7 @@
 /*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 14:41:45 by hal-taha          #+#    #+#             */
-/*   Updated: 2026/03/18 13:36:54 by hal-taha         ###   ########.fr       */
+/*   Updated: 2026/03/30 01:13:15 by hal-taha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	bench(t_stack *a, char *arg, char *argv)
 		a->bench->rrr);
 }
 
-static void	init_bs(t_stack *a)
+void	init_bs(t_stack *a)
 {
 	a->bench->pa = 0;
 	a->bench->pb = 0;

@@ -6,7 +6,7 @@
 /*   By: leobeida <leobeida@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 11:22:23 by leobeida          #+#    #+#             */
-/*   Updated: 2026/03/18 13:44:09 by hal-taha         ###   ########.fr       */
+/*   Updated: 2026/03/29 23:12:16 by hal-taha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	sa(t_stack *a)
 {
 	if (swap(a))
 	{
-		write(2, "sa\n", 3);
+		write(1, "sa\n", 3);
 		a->bench->sa++;
 		a->bench->count++;
 	}
@@ -42,7 +42,7 @@ void	sb(t_stack *b)
 {
 	if (swap(b))
 	{
-		write(2, "sb\n", 3);
+		write(1, "sb\n", 3);
 		b->bench->sb++;
 		b->bench->count++;
 	}
@@ -54,7 +54,7 @@ void	ss(t_stack *a, t_stack *b)
 	{
 		swap(a);
 		swap(b);
-		write(2, "ss\n", 3);
+		write(1, "ss\n", 3);
 		a->bench->count++;
 		a->bench->ss++;
 	}
