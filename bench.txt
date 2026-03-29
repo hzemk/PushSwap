@@ -1,1 +1,5 @@
-bash: ./push_swap: No such file or directory
+[bench] disorder: 49.63%
+[bench] strategy:  Adaptive / O(n√n)
+[bench] total: 8467
+[bench] sa:0 sb:0 ss:0 pa:500 pb:500
+[bench] ra:5418 rb:1029 rr:0 rra:0 rrb:1020 rrr:0

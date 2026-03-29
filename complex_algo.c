@@ -6,7 +6,7 @@
 /*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 15:21:27 by hal-taha          #+#    #+#             */
-/*   Updated: 2026/03/18 11:34:25 by leobeida         ###   ########.fr       */
+/*   Updated: 2026/03/30 02:10:03 by hal-taha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "pushswap.h"
@@ -20,10 +20,10 @@ static void	process_bits(t_stack *a, t_stack *b, int i)
 	size = a->size;
 	while (j < size)
 	{
-		if (((a->top->value >> i) & 1) == 0)
-			pb(a, b);
-		else
+		if (((a->top->value >> i) & 1) == 1)
 			ra(a);
+		else
+			pb(a, b);
 		j++;
 	}
 	while (b->size > 0)
