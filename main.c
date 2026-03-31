@@ -6,7 +6,7 @@
 /*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 15:10:04 by hal-taha          #+#    #+#             */
-/*   Updated: 2026/03/18 13:27:44 by hal-taha         ###   ########.fr       */
+/*   Updated: 2026/04/01 01:19:01 by hal-taha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ static int	extract_mode(int mode, int *bench)
 
 static void	launch_algo(int mode, t_stack *a, t_stack *b)
 {
+
 	if (mode == MODE_ADAPTIVE)
 		adaptive(a, b);
+	else if (a->size <= 5)
+		simple_five(a, b);
 	else if (mode == MODE_SIMPLE)
 		simple(a);
 	else if (mode == MODE_MEDIUM)

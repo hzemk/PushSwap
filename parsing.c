@@ -6,7 +6,7 @@
 /*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 14:02:52 by hal-taha          #+#    #+#             */
-/*   Updated: 2026/02/08 14:27:15 by hal-taha         ###   ########.fr       */
+/*   Updated: 2026/04/01 01:36:07 by hal-taha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,5 @@ t_stack	*parsing(int argc, char **argv)
 		parse_arg(a, argv[i]);
 		i++;
 	}
-	if (a->size == 0)
-		error(a);
 	return (a);
 }
