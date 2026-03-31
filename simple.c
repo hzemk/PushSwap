@@ -6,7 +6,7 @@
 /*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 14:56:07 by hal-taha          #+#    #+#             */
-/*   Updated: 2026/03/30 01:17:36 by hal-taha         ###   ########.fr       */
+/*   Updated: 2026/04/01 00:23:04 by hal-taha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,30 @@ static void	free_local_b(t_stack *b)
 
 void	simple_five(t_stack *a, t_stack *b)
 {
-	while (a->size > 3)
+	if (a->size == 4 || a->size == 5)
 	{
-		if (a->top->value == find_min(a))
-			pb(a, b);
-		else
-			ra(a);
-	}
-	if (a->top->value > a->top->next->value)
-		sa(a);
-	if (!is_sorted(a))
-	{
-		rra(a);
+		while (a->size > 3)
+		{
+			if (a->top->value == find_min(a))
+				pb(a, b);
+			else
+				ra(a);
+		}
 		if (a->top->value > a->top->next->value)
 			sa(a);
+		if (!is_sorted(a))
+		{
+			rra(a);
+			if (a->top->value > a->top->next->value)
+				sa(a);
+		}
+		while (b->size)
+			pa(a, b);
 	}
-	while (b->size)
-		pa(a, b);
+	if (a->size == 2 && (a->top->value > a->top->next->value))
+		sa(a);
+	if (a->size == 3)
+		sort_three(a);
 }
 
 static void	move_min_to_top(t_stack *a)
@@ -84,7 +91,7 @@ void	simple(t_stack *a)
 	b = init_local_b();
 	if (!b)
 		return ;
-	if (a->size == 4 || a->size == 5)
+	if (a->size <= 5)
 	{
 		simple_five(a, b);
 		free_local_b(b);

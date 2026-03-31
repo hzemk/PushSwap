@@ -31,25 +31,24 @@ int	find_top(t_stack *stack)
 	return (stack->top->value);
 }
 
-void push_back(t_stack *stack, int value)
+void	push_back(t_stack *stack, int value)
 {
-    t_node *new;
-    t_node *current;
+	t_node	*new;
+	t_node	*current;
 
-    new = malloc(sizeof(t_node));
-    new->value = value;
-    new->next = NULL;
-
-    if (!stack->top)
-        stack->top = new;
-    else
-    {
-        current = stack->top;
-        while (current->next)
-            current = current->next;
-        current->next = new;
-    }
-    stack->size++;
+	new = malloc(sizeof(t_node));
+	new->value = value;
+	new->next = NULL;
+	if (!stack->top)
+		stack->top = new;
+	else
+	{
+		current = stack->top;
+		while (current->next)
+			current = current->next;
+		current->next = new;
+	}
+	stack->size++;
 }
 
 /*

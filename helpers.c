@@ -6,7 +6,7 @@
 /*   By: hal-taha <hal-taha@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 14:29:42 by hal-taha          #+#    #+#             */
-/*   Updated: 2026/02/08 14:55:22 by hal-taha         ###   ########.fr       */
+/*   Updated: 2026/04/01 00:04:59 by hal-taha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,12 @@ int	is_dup(t_stack *a, long num)
 		current = current->next;
 	}
 	return (0);
+}
+
+void	sort_three(t_stack *a)
+{
+	while (find_max(a) != find_bottom(a))
+		ra(a);
+	if (a->top->value > a->top->next->value)
+		sa(a);
 }
