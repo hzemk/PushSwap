@@ -25,7 +25,6 @@ static int	extract_mode(int mode, int *bench)
 
 static void	launch_algo(int mode, t_stack *a, t_stack *b)
 {
-
 	if (mode == MODE_ADAPTIVE)
 		adaptive(a, b);
 	else if (a->size <= 5)
